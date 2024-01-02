@@ -1,0 +1,31 @@
+Lavanda,10,5.99
+Musetel,0,4.5
+Echinaceea,15,7.25
+Mentă,12,6.75
+Rozmarin,7,8.99
+Cimbru,20,3.75
+Busuioc,9,5.25
+Salvie,11,4.95
+Oregano,14,6.5
+Melisă,18,5.5
+Mărar,6,3.25
+Coriandru,13,4.75
+Fenicul,16,6.2
+Mărar,10,5.8
+Leuștean,12,7.99
+Mușețel german,10,6.5
+Arnica,8,9.75
+Menta piperita,15,8.25
+Coada șoricelului,11,4.5
+Sunatoare,14,7.75
+Valeriana,9,6.25
+Coada calului,13,5.95
+Ridiche neagra,17,4.2
+Cicoare,20,3.5
+Brusture,10,6.75
+Ginseng,8,12.5
+Fraguta,15,5.99
+Galbenele,12,4.8
+Ciubotica cucului,7,8.5
+Ienupar,18,6.75
+robert,23,21.0

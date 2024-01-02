@@ -1,0 +1,2 @@
+javac main.java;java main;
+find . -type f -name "*.class" -exec rm {} \;

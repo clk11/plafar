@@ -1,7 +1,6 @@
-package Componente;
-
+package GUI;
 import Entitati.PlantaMedicinala;
-
+import Backend.func;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -58,7 +57,7 @@ public class FormaAdaugarePlanta {
         confirmButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                newPlanta = createPlanta();
+                newPlanta = func.createPlanta(denumireField.getText(),cantitateField.getText(),pretField.getText());
                 if (newPlanta != null) {
                     dialog.dispose();
                 } else {
@@ -76,16 +75,5 @@ public class FormaAdaugarePlanta {
     }
 
     // Se creeaza planta in functie de valorile introduse in campuri
-    private PlantaMedicinala createPlanta() {
-        String denumire = denumireField.getText();
-        int cantitate;
-        double pret;
-        try {
-            cantitate = Integer.parseInt(cantitateField.getText());
-            pret = Double.parseDouble(pretField.getText());
-        } catch (NumberFormatException e) {
-            return null;
-        }
-        return new PlantaMedicinala(denumire, cantitate, pret);
-    }
+
 }

@@ -1,5 +1,6 @@
-package Componente;
+package GUI;
 
+import Backend.func;
 import java.io.*;
 import javax.swing.*;
 import javax.swing.event.TableModelEvent;
@@ -16,45 +17,10 @@ import Entitati.PlantaMedicinala;
 public class FormaAfisarePlante {
     public static List<PlantaMedicinala> plante = new ArrayList<>();
 
-    // Constructor pentru FormaAfisarePlante unde citim datele din fisierul text
     public FormaAfisarePlante() {
-        try (BufferedReader br = new BufferedReader(new FileReader("Data/plante_medicinale.txt"))) {
-            String line;
-            // Facem split la virgula astfel formand un vector cu 3 elemente fiecare pozitie
-            // reprezentand o proprietate a florii
-            while ((line = br.readLine()) != null) {
-                String[] parts = line.split(",");
-                String denumire = parts[0].trim();
-                int cantitate = Integer.parseInt(parts[1].trim());
-                double pret = Double.parseDouble(parts[2].trim());
-
-                plante.add(new PlantaMedicinala(denumire, cantitate, pret));
-            }
-
-        } catch (IOException | NumberFormatException | ArrayIndexOutOfBoundsException e) {
-            e.printStackTrace();
-            System.out.println("Eroare la fisierul text !");
-        }
+        plante.addAll(func.citesteDate());
     }
 
-    // Salvam modificarile in fisierul text . Am decis sa fac un buton pentru scopul
-    // asta pentru performanta
-    // dar pot apela metoda de fiecare data cand fac o operatiune
-
-    public static void salvareDate() {
-        try (BufferedWriter bw = new BufferedWriter(new FileWriter("Data/plante_medicinale.txt"))) {
-            for (PlantaMedicinala planta : plante) {
-                bw.write(planta.denumire + "," + planta.cantitate + "," + planta.pret);
-                bw.newLine();
-            }
-            JOptionPane.showMessageDialog(null, "Datele au fost actualizate cu success !");
-        } catch (IOException e) {
-            e.printStackTrace();
-            JOptionPane.showMessageDialog(null, "A aparut o eroare la salvarea plantelor !");
-        }
-    }
-
-    // Metodă pentru încărcarea și afișarea formei de listare a plantelor
     public static void load() {
         // Crearea unui nou JFrame pentru lista de plante
         JFrame frame = new JFrame("Lista plante");
@@ -145,7 +111,7 @@ public class FormaAfisarePlante {
         buttonSave.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                salvareDate();
+                func.salvareDate(plante);
             }
         });
 

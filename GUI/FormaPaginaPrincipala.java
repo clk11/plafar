@@ -1,8 +1,10 @@
-package Componente;
-import Componente.FormaAfisarePlante;
-import Componente.FormaInformatiiAutor;
+package GUI;
 import javax.swing.JButton;
 import javax.swing.JFrame;
+
+import GUI.FormaAfisarePlante;
+import GUI.FormaInformatiiAutor;
+
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.Toolkit;

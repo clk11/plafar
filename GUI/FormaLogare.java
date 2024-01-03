@@ -1,4 +1,4 @@
-package Componente;
+package GUI;
 
 import javax.swing.*;
 import java.awt.*;
@@ -7,7 +7,7 @@ import java.awt.event.ActionListener;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
-
+import Backend.func;
 public class FormaLogare extends JFrame {
 
     private JTextField usernameField;
@@ -51,7 +51,7 @@ public class FormaLogare extends JFrame {
                 String username = usernameField.getText();
                 char[] passwordChars = passwordField.getPassword();
                 String password = new String(passwordChars);
-                if (verificaCredentiale(username, password)) {
+                if (func.verificaCredentiale(username, password)) {
                     JOptionPane.showMessageDialog(FormaLogare.this, "Ai fost logat cu success!");
                     FormaPaginaPrincipala form = new FormaPaginaPrincipala();
                     form.load();
@@ -68,23 +68,5 @@ public class FormaLogare extends JFrame {
         panel.add(buttonPanel);
 
         add(panel);
-    }
-
-    private boolean verificaCredentiale(String username, String password) {
-        boolean verifyCreds = !username.trim().isEmpty() && !password.trim().isEmpty();
-        if (verifyCreds) {
-            try (BufferedReader br = new BufferedReader(new FileReader("Data/users.txt"))) {
-                String line;
-                while ((line = br.readLine()) != null) {
-                    String[] parts = line.split(",");
-                    if (parts[0].trim().equals(username.trim()) && parts[1].trim().equals(password.trim()))
-                        return true;
-                }
-            } catch (IOException | NumberFormatException | ArrayIndexOutOfBoundsException e) {
-                e.printStackTrace();
-            }
-            return false;
-        } else
-            return false;
     }
 }

@@ -1,6 +1,7 @@
 package GUI;
 import Entitati.PlantaMedicinala;
-import Backend.func;
+import Logic.func;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;

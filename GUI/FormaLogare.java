@@ -1,13 +1,15 @@
 package GUI;
 
 import javax.swing.*;
+
+import Logic.func;
+
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
-import Backend.func;
 public class FormaLogare extends JFrame {
 
     private JTextField usernameField;

@@ -1,6 +1,5 @@
 package GUI;
 
-import Backend.func;
 import java.io.*;
 import javax.swing.*;
 import javax.swing.event.TableModelEvent;
@@ -13,6 +12,7 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.List;
 import Entitati.PlantaMedicinala;
+import Logic.func;
 
 public class FormaAfisarePlante {
     public static List<PlantaMedicinala> plante = new ArrayList<>();

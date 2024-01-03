@@ -1,4 +1,4 @@
-package Backend;
+package Logic;
 
 import Entitati.PlantaMedicinala;
 import java.io.*;

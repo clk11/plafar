@@ -18,7 +18,7 @@ public class FormaAfisarePlante {
 
     // Constructor pentru FormaAfisarePlante unde citim datele din fisierul text
     public FormaAfisarePlante() {
-        try (BufferedReader br = new BufferedReader(new FileReader("plante_medicinale.txt"))) {
+        try (BufferedReader br = new BufferedReader(new FileReader("Data/plante_medicinale.txt"))) {
             String line;
             // Facem split la virgula astfel formand un vector cu 3 elemente fiecare pozitie
             // reprezentand o proprietate a florii
@@ -42,7 +42,7 @@ public class FormaAfisarePlante {
     // dar pot apela metoda de fiecare data cand fac o operatiune
 
     public static void salvareDate() {
-        try (BufferedWriter bw = new BufferedWriter(new FileWriter("plante_medicinale.txt"))) {
+        try (BufferedWriter bw = new BufferedWriter(new FileWriter("Data/plante_medicinale.txt"))) {
             for (PlantaMedicinala planta : plante) {
                 bw.write(planta.denumire + "," + planta.cantitate + "," + planta.pret);
                 bw.newLine();
@@ -162,7 +162,7 @@ public class FormaAfisarePlante {
     }
 
     // Clasa pentru desenarea tabelului
-    
+
     static class ButtonRenderer extends JButton implements TableCellRenderer {
         public ButtonRenderer() {
             setOpaque(true);

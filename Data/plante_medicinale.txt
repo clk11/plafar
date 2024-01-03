@@ -28,4 +28,4 @@ Fraguta,15,5.99
 Galbenele,12,4.8
 Ciubotica cucului,7,8.5
 Ienupar,18,6.75
-robert,23,21.0
+robert,10,21.0

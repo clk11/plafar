@@ -1,6 +1,5 @@
 package GUI;
 
-import java.io.*;
 import javax.swing.*;
 import javax.swing.event.TableModelEvent;
 import javax.swing.event.TableModelListener;
@@ -30,31 +29,26 @@ public class FormaAfisarePlante {
         int x = (screenSize.width - frame.getWidth()) / 2;
         int y = (screenSize.height - frame.getHeight()) / 2;
         frame.setLocation(x, y);
-
         // Definirea numelor de coloane pentru tabel
         String[] columnNames = { "Cantitate", "Denumire", "Pret", "Adauga" };
         DefaultTableModel tableModel = new DefaultTableModel(columnNames, 0);
-
         // Adăugarea datelor plantelor în tabel
         for (PlantaMedicinala planta : plante) {
             Object[] rowData = { planta.cantitate, planta.denumire, planta.pret, "Vinde" };
             tableModel.addRow(rowData);
         }
-
         // Crearea tabelului și setarea aspectului acestuia
         JTable table = new JTable(tableModel);
         Font tableFont = table.getFont().deriveFont(table.getFont().getSize() * 1.5f);
         table.setFont(tableFont);
         table.getColumnModel().getColumn(3).setCellRenderer(new ButtonRenderer());
         table.getColumnModel().getColumn(3).setCellEditor(new ButtonEditor(new JCheckBox(), table, tableModel));
-
         // Adăugarea unui ascultător pentru modificările din tabel
         tableModel.addTableModelListener(new TableModelListener() {
             @Override
             public void tableChanged(TableModelEvent e) {
                 int row = e.getFirstRow();
                 int column = e.getColumn();
-
                 if (column != -1) {
                     Object data = tableModel.getValueAt(row, column);
                     switch (column) {
@@ -73,24 +67,19 @@ public class FormaAfisarePlante {
                 }
             }
         });
-
         // Adăugarea tabelului într-un panou cu scroll
         JScrollPane scrollPane = new JScrollPane(table);
         frame.add(scrollPane, BorderLayout.CENTER);
-
         // Adăugarea unei etichete pentru indicarea stării listei de plante
         JLabel label = new JLabel("Plante afisate");
         label.setFont(new Font("Arial", Font.PLAIN, 10));
         frame.add(label, BorderLayout.NORTH);
-
         // ======================================================================ButtonC
-
         // Crearea unui buton pentru adăugarea unei noi plante
         JButton buttonC = new JButton("Adauga planta");
         int fontSize = 20;
         Font buttonFont = new Font("Arial", Font.PLAIN, fontSize);
         buttonC.setFont(buttonFont);
-
         // Adăugarea unui ascultător pentru butonul de adăugare a plantei
         buttonC.addActionListener(e -> {
             FormaAdaugarePlanta formaAdaugarePlanta = new FormaAdaugarePlanta();
@@ -100,10 +89,8 @@ public class FormaAfisarePlante {
                 tableModel.addRow(new Object[] { newPlanta.cantitate, newPlanta.denumire, newPlanta.pret, "Vinde" });
             }
         });
-
         // ======================================================================ButtonSave
         // Crearea unui buton pentru salvarea datelor in fisierul text
-
         JButton buttonSave = new JButton("Salvare date");
         buttonSave.setForeground(Color.black);
         buttonSave.setFont(buttonSave.getFont().deriveFont(Font.BOLD, buttonSave.getFont().getSize() + 2));
@@ -115,25 +102,21 @@ public class FormaAfisarePlante {
             }
         });
 
-        // Setam pozitiile butoanelor pe frame
+        // Setam pozitiile butoanelor pe frame (fiecare in cate un panel separat pentru customizabilitate)
         JPanel southPanel = new JPanel(new FlowLayout());
         JPanel northPanel = new JPanel(new FlowLayout(FlowLayout.RIGHT));
         southPanel.add(buttonC);
         northPanel.add(buttonSave);
         frame.add(southPanel, BorderLayout.SOUTH);
         frame.add(northPanel, BorderLayout.NORTH);
-
         // Se afiseaza frame-ul
         frame.setVisible(true);
     }
-
     // Clasa pentru desenarea tabelului
-
     static class ButtonRenderer extends JButton implements TableCellRenderer {
         public ButtonRenderer() {
             setOpaque(true);
         }
-
         @Override
         public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected, boolean hasFocus,
                 int row, int column) {
@@ -141,11 +124,9 @@ public class FormaAfisarePlante {
             return this;
         }
     }
-
     // Clasă internă pentru gestionarea acțiunilor butoanelor din tabel
     static class ButtonEditor extends DefaultCellEditor {
         private JButton button;
-
         public ButtonEditor(JCheckBox checkBox, JTable table, DefaultTableModel tableModel) {
             super(checkBox);
             button = new JButton();
@@ -162,14 +143,12 @@ public class FormaAfisarePlante {
                 }
             });
         }
-
         @Override
         public Component getTableCellEditorComponent(JTable table, Object value, boolean isSelected, int row,
                 int column) {
             button.setText((value == null) ? "" : value.toString());
             return button;
         }
-
         @Override
         public Object getCellEditorValue() {
             return button.getText();

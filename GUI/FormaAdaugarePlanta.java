@@ -23,12 +23,9 @@ public class FormaAdaugarePlanta {
         int x = (screenSize.width - dialog.getWidth()) / 2;
         int y = (screenSize.height - dialog.getHeight()) / 2;
         dialog.setLocation(x, y);
-
         JPanel panel = new JPanel();
         panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
-
         // Adaugarea formei pentru introducerea noii plante
-
         JLabel denumireLabel = new JLabel("Denumire:");
         denumireLabel.setFont(new Font("Arial", Font.PLAIN, 20));
         denumireField = new JTextField();
@@ -43,14 +40,12 @@ public class FormaAdaugarePlanta {
         pretLabel.setFont(new Font("Arial", Font.PLAIN, 20));
         pretField = new JTextField();
         pretField.setFont(new Font("Arial", Font.PLAIN, 18));
-
         panel.add(denumireLabel);
         panel.add(denumireField);
         panel.add(cantitateLabel);
         panel.add(cantitateField);
         panel.add(pretLabel);
         panel.add(pretField);
-
         // Butonul pentru adaugarea unei noi plante
         JButton confirmButton = new JButton("Confirm");
         confirmButton.setFont(new Font("Arial", Font.PLAIN, 18));
@@ -66,15 +61,10 @@ public class FormaAdaugarePlanta {
                 }
             }
         });
-    
         panel.add(confirmButton);
         dialog.getContentPane().add(panel);
         dialog.setVisible(true);
-
         // Returnarea noii plante
         return newPlanta;
     }
-
-    // Se creeaza planta in functie de valorile introduse in campuri
-
 }

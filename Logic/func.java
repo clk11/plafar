@@ -19,7 +19,6 @@ public class func {
         }
         return new PlantaMedicinala(denumire, parsedCantitate, parsedPret);
     }
-
     // Function pentru a salva datele
     public static void salvareDate(List<PlantaMedicinala> plante) {
         try (BufferedWriter bw = new BufferedWriter(new FileWriter("Data/plante_medicinale.txt"))) {
@@ -33,7 +32,6 @@ public class func {
             JOptionPane.showMessageDialog(null, "A aparut o eroare la salvarea plantelor !");
         }
     }
-
     // Functie pentru a citi datele din fisierul text
     public static List<PlantaMedicinala> citesteDate() {
         List<PlantaMedicinala> plante = new ArrayList<>();
@@ -53,9 +51,7 @@ public class func {
         }
         return plante;
     }
-
     // Functie pentru verificarea credentialelor
-
     public static boolean verificaCredentiale(String username, String password) {
         boolean verifyCreds = !username.trim().isEmpty() && !password.trim().isEmpty();
         if (verifyCreds) {

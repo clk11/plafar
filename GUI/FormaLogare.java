@@ -1,20 +1,13 @@
 package GUI;
-
 import javax.swing.*;
-
 import Logic.func;
-
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
-public class FormaLogare extends JFrame {
 
+public class FormaLogare extends JFrame {
     private JTextField usernameField;
     private JPasswordField passwordField;
-
     public FormaLogare() {
         setTitle("Login Form");
         setSize(600, 400);
@@ -28,7 +21,6 @@ public class FormaLogare extends JFrame {
         JPanel panel = new JPanel();
         panel.setLayout(new GridLayout(3, 1));
         panel.setBorder(BorderFactory.createEmptyBorder(50, 50, 50, 50));
-
         JPanel usernamePanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
         JLabel usernameLabel = new JLabel("Nume utilizator :");
         usernameField = new JTextField(40);
@@ -36,7 +28,6 @@ public class FormaLogare extends JFrame {
         usernameField.setFont(new Font("Arial", Font.PLAIN, 18));
         usernamePanel.add(usernameLabel);
         usernamePanel.add(usernameField);
-
         JPanel passwordPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
         JLabel passwordLabel = new JLabel("Parola :");
         passwordField = new JPasswordField(40);
@@ -44,7 +35,6 @@ public class FormaLogare extends JFrame {
         passwordField.setFont(new Font("Arial", Font.PLAIN, 18));
         passwordPanel.add(passwordLabel);
         passwordPanel.add(passwordField);
-
         JPanel buttonPanel = new JPanel(new FlowLayout(FlowLayout.CENTER));
         JButton loginButton = new JButton("Logare");
         loginButton.addActionListener(new ActionListener() {
@@ -63,13 +53,11 @@ public class FormaLogare extends JFrame {
                 }
             }
         });
-
         loginButton.setFont(new Font("Arial", Font.BOLD, 18));
         buttonPanel.add(loginButton);
         panel.add(usernamePanel);
         panel.add(passwordPanel);
         panel.add(buttonPanel);
-
         add(panel);
     }
 }

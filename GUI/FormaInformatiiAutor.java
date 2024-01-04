@@ -4,7 +4,6 @@ import javax.swing.*;
 import java.awt.*;
 
 public class FormaInformatiiAutor {
-
     //Afisarea informatiilor despre autor
     public static void load() {
         JFrame frame = new JFrame("Informatii Autor");

@@ -57,6 +57,7 @@ public class FormaLogare extends JFrame {
                     JOptionPane.showMessageDialog(FormaLogare.this, "Ai fost logat cu success!");
                     FormaPaginaPrincipala form = new FormaPaginaPrincipala();
                     form.load();
+                    dispose();
                 } else {
                     JOptionPane.showMessageDialog(FormaLogare.this, "Nume utilizator sau parola invalide!");
                 }

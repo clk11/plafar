@@ -10,7 +10,7 @@ Folosiți comanda următoare pentru a rula aplicatia .
 ```bash
 ./run.txt
 ```
-Sau, dacă nu doriți să oferiți privilegii sau să folosiți run.txt, puteți rula manual:
+Sau, dacă nu doriți să oferiți privilegii sau să folosiți run.txt, puteți rula manual(Aceasta varianta functioneaza atat pe linux cat si pe windows comanda introducandu-se in terminal):
 ```bash
 javac main.java;java main;
 ```
